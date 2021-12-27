@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_crontab',
     'rest_framework',
     'listingManager',
 ]
@@ -82,6 +83,9 @@ DATABASES = {
     }
 }
 
+CRONJOBS = [
+    ('*/5 * * * *', 'listingManager.cron.remove_old_reservations')
+]
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
